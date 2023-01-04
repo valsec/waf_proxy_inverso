@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="62b6f27e-1c51-4525-a345-6410e23374a1" name="svrsyslog">
+        <fileTransfer rootFolder="/home/v4lr0t/waf_proxy_inverso/" accessType="SFTP" host="192.168.100.60" port="22" sshConfigId="b7846309-9ab8-46fe-8a35-ea5578b6343b" sshConfig="v4lr0t@192.168.100.60:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

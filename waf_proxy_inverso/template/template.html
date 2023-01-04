@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Systema WAF</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/edbe47cdc7.js" crossorigin="anonymous"></script>
+        
+        {% block Header %}{% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-lg-4 col-xs-12">
+                                <a href="#" class="d-block link-dark text-decoration-none ">
+                                    <img src="{% static 'img/users/' %}{{request.user.username}}.png" alt="user" width="72" height="72" class="rounded-circle">
+                                </a>
+                            </div>
+                            <div class="col-xl-8 col-md-6 col-lg-8 col-xs-12">
+                                <label class="text-white col-12">{{ request.user.username }}</label>
+                                <label class="text-white col-12">{{ request.user.first_name }} {{ request.user.last_name }}</label>
+                                <label class="text-white col-12">{{ request.user.email }}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            <li class="nav-item">
+                                <a href="{% url 'Dashboard:Index' %}" class="nav-link align-middle px-0 text-white">
+                                    <i class="fa fs-5 fa-dashboard"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0 align-middle text-white">
+                                    <i class="fa fs-5 fa-shield"></i> <span class="ms-1 d-none d-sm-inline">WAF</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0 align-middle text-white">
+                                    <i class="fa fs-5 fa-laptop"></i> <span class="ms-1 d-none d-sm-inline">Activos</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0 align-middle text-white">
+                                    <i class="fa fs-5 fa-cogs"></i> <span class="ms-1 d-none d-sm-inline">Configuración</span></a>
+                            </li>
+                            <li>
+                                <a href="{% url 'Logout' %}" class="nav-link px-0 align-middle text-white">
+                                    <i class="fa fs-5 fa-sign-out"></i> <span class="ms-1 d-none d-sm-inline">Salir</span></a>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col py-3 bg-dark">
+                    {% block Content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+        {% block JScript %}{% endblock %}
+    </body>
+</html>
